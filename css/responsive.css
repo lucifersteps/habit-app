@@ -1,0 +1,382 @@
+/* ===== 苹果风格响应式样式 ===== */
+
+/* 大屏幕 (1200px以上) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .main-content {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .stats-summary {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .score-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    .score-option {
+        width: 64px;
+        height: 64px;
+        font-size: var(--font-size-xl);
+    }
+}
+
+/* 中等屏幕 (768px - 1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+    .container {
+        padding: var(--spacing-md);
+    }
+    
+    .main-content {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .stats-summary {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    header h1 {
+        font-size: var(--font-size-xxl);
+    }
+}
+
+/* 平板设备 (768px以下) */
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .container {
+        padding: var(--spacing-md);
+    }
+    
+    header {
+        padding: var(--spacing-lg) 0;
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    header h1 {
+        font-size: var(--font-size-xxl);
+    }
+    
+    .subtitle {
+        font-size: var(--font-size-base);
+    }
+    
+    .stats-summary {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    .score-selector {
+        justify-content: center;
+    }
+    
+    .modal-content {
+        margin: 5% auto;
+        width: 95%;
+        padding: var(--spacing-lg);
+    }
+    
+    .score-modal-content {
+        margin: 10% auto;
+        padding: var(--spacing-lg);
+    }
+    
+    .week-controls {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        align-items: stretch;
+    }
+    
+    .week-navigation {
+        justify-content: center;
+    }
+    
+    .current-week {
+        min-width: auto;
+    }
+    
+    .habit-name-cell {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+    
+    .habit-actions-small {
+        align-self: flex-end;
+    }
+    
+    .score-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--spacing-sm);
+    }
+    
+    .score-option {
+        width: 48px;
+        height: 48px;
+        font-size: var(--font-size-base);
+    }
+}
+
+/* 手机设备 (480px以下) */
+@media (max-width: 480px) {
+    .container {
+        padding: var(--spacing-sm);
+    }
+    
+    header {
+        padding: var(--spacing-md) 0;
+    }
+    
+    header h1 {
+        font-size: var(--font-size-xl);
+    }
+    
+    .subtitle {
+        font-size: var(--font-size-sm);
+    }
+    
+    .section-header {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        align-items: stretch;
+    }
+    
+    .section-header h2 {
+        text-align: center;
+        font-size: var(--font-size-lg);
+    }
+    
+    .stats-summary {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+    
+    .week-view-table {
+        font-size: var(--font-size-sm);
+    }
+    
+    .week-view-table th,
+    .week-view-table td {
+        padding: var(--spacing-sm);
+    }
+    
+    .score-circle {
+        width: 36px;
+        height: 36px;
+        font-size: var(--font-size-base);
+    }
+    
+    .score-option {
+        width: 44px;
+        height: 44px;
+        font-size: var(--font-size-sm);
+    }
+    
+    .score-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-xs);
+    }
+    
+    .modal-content {
+        margin: 2% auto;
+        width: 98%;
+        padding: var(--spacing-md);
+    }
+    
+    .score-modal-content {
+        margin: 5% auto;
+        padding: var(--spacing-md);
+    }
+    
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: var(--spacing-md);
+    }
+    
+    .btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: var(--font-size-sm);
+    }
+    
+    .btn-success {
+        padding: var(--spacing-md);
+        font-size: var(--font-size-base);
+    }
+    
+    .habit-item {
+        padding: var(--spacing-sm);
+    }
+    
+    .habit-info h3 {
+        font-size: var(--font-size-base);
+    }
+    
+    .habit-info p {
+        font-size: var(--font-size-sm);
+    }
+    
+    .stats-section {
+        padding: var(--spacing-lg);
+    }
+    
+    .chart-container {
+        height: 280px;
+        padding: var(--spacing-sm);
+    }
+}
+
+/* 超小屏幕 (320px以下) */
+@media (max-width: 320px) {
+    .container {
+        padding: var(--spacing-xs);
+    }
+    
+    header h1 {
+        font-size: var(--font-size-lg);
+    }
+    
+    .week-view-table th:first-child {
+        min-width: 120px;
+    }
+    
+    .score-circle {
+        width: 32px;
+        height: 32px;
+        font-size: var(--font-size-sm);
+    }
+    
+    .score-option {
+        width: 40px;
+        height: 40px;
+        font-size: var(--font-size-xs);
+    }
+    
+    .score-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-xs);
+    }
+    
+    .stats-section {
+        padding: var(--spacing-md);
+    }
+}
+
+/* 横屏模式 - 苹果风格 */
+@media (orientation: landscape) and (max-height: 600px) {
+    header {
+        margin-bottom: var(--spacing-md);
+        padding: var(--spacing-md) 0;
+    }
+    
+    header h1 {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .subtitle {
+        font-size: var(--font-size-sm);
+    }
+    
+    .modal-content {
+        margin: 2% auto;
+    }
+    
+    .score-modal-content {
+        margin: 5% auto;
+    }
+    
+    .chart-container {
+        height: 240px;
+    }
+}
+
+/* 打印样式 - 苹果风格 */
+@media print {
+    .btn,
+    .score-circle,
+    .modal,
+    .score-modal {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+        font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    }
+    
+    .container {
+        max-width: none;
+        padding: 0;
+    }
+    
+    .habits-list,
+    .checkin-section,
+    .stats-section {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        break-inside: avoid;
+        background: white !important;
+    }
+    
+    .week-view-table {
+        border: 1px solid #000;
+        background: white !important;
+    }
+    
+    .week-view-table th,
+    .week-view-table td {
+        border: 1px solid #000;
+        background: white !important;
+    }
+    
+    .average-row {
+        background: #f5f5f5 !important;
+    }
+    
+    .average-score {
+        background: white !important;
+        border: 1px solid #000 !important;
+    }
+}
+
+/* 苹果设备特定优化 */
+@supports (-webkit-touch-callout: none) {
+    /* iOS Safari 特定样式 */
+    .btn {
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .score-circle {
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .score-option {
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* 防止iOS缩放 */
+    input, textarea, select {
+        font-size: 16px;
+    }
+}
+
+/* 高DPI屏幕优化 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .score-circle,
+    .score-option,
+    .btn {
+        border-width: 0.5px;
+    }
+} 

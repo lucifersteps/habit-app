@@ -151,9 +151,16 @@ export class ScoreModal {
         if (e.target.classList.contains("score-option")) {
             const scoreValue = e.target.dataset.score;
             
+            // 添加点击动画效果
+            e.target.style.transform = "scale(0.95)";
+            setTimeout(() => {
+                e.target.style.transform = "";
+            }, 150);
+            
             // 移除之前的选中状态
             document.querySelectorAll(".score-option").forEach(option => {
                 option.classList.remove("selected");
+                option.style.transform = "";
             });
 
             if (scoreValue === "clear") {
@@ -161,6 +168,12 @@ export class ScoreModal {
             } else {
                 this.selectedScore = parseInt(scoreValue);
                 e.target.classList.add("selected");
+                
+                // 添加选中动画效果
+                e.target.style.transform = "scale(1.05)";
+                setTimeout(() => {
+                    e.target.style.transform = "scale(1)";
+                }, 200);
             }
         }
     }

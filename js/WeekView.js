@@ -97,6 +97,9 @@ export class WeekView {
             tableHTML += this._generateHabitRow(habit, weekDates);
         });
 
+        // 生成平均分行
+        tableHTML += this._generateAverageRow(weekDates, habits);
+
         tableHTML += `
                 </tbody>
             </table>
@@ -142,7 +145,7 @@ export class WeekView {
                             <h4>${habit.name}</h4>
                         </div>
                         <div class="habit-actions-small">
-                            <button class="btn-small btn-edit-small" data-habit-id="${habit.id}">✏</button>
+                            <button class="btn-small btn-edit-small" data-habit-id="${habit.id}">✏️</button>
                             <button class="btn-small btn-delete-small" data-habit-id="${habit.id}">×</button>
                         </div>
                     </div>
@@ -197,6 +200,64 @@ export class WeekView {
                      data-date="${date}"
                      title="${circleTitle}">
                     ${circleContent}
+                </div>
+            </td>
+        `;
+    }
+
+    /**
+     * 生成平均分行
+     * @param {Array} weekDates - 周日期数组
+     * @param {Array} habits - 习惯列表
+     * @returns {string} HTML字符串
+     */
+    _generateAverageRow(weekDates, habits) {
+        return `
+            <tr class="average-row">
+                <td>
+                    <div class="average-label">
+                        <strong>当日平均分</strong>
+                    </div>
+                </td>
+                ${weekDates.map(date => this._generateAverageCell(date, habits)).join("")}
+            </tr>
+        `;
+    }
+
+    /**
+     * 生成平均分单元格
+     * @param {string} date - 日期
+     * @param {Array} habits - 习惯列表
+     * @returns {string} HTML字符串
+     */
+    _generateAverageCell(date, habits) {
+        const scores = habits.map(habit => this.habitTracker.getScore(habit.id, date))
+                             .filter(score => score !== null && score !== undefined);
+        
+        let averageScore = 0;
+        let displayText = "-";
+        let cellClass = "average-cell";
+        
+        if (scores.length > 0) {
+            averageScore = scores.reduce((sum, score) => sum + score, 0) / scores.length;
+            displayText = averageScore.toFixed(1);
+            
+            // 根据平均分设置样式
+            if (averageScore >= 8) {
+                cellClass += " excellent";
+            } else if (averageScore >= 6) {
+                cellClass += " good";
+            } else if (averageScore >= 4) {
+                cellClass += " fair";
+            } else {
+                cellClass += " poor";
+            }
+        }
+
+        return `
+            <td class="${cellClass}">
+                <div class="average-score">
+                    ${displayText}
                 </div>
             </td>
         `;

@@ -13,7 +13,7 @@ export const EMOJI_MAP = {
     7: "😊",
     10: "🎉",
     MISSED: "🐱",
-    FUTURE: "🌱"
+    FUTURE: "🌿"
 };
 
 // 分数等级描述
